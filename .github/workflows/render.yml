@@ -1,0 +1,82 @@
+name: Render Animated Short
+
+on:
+  workflow_dispatch:
+    inputs:
+      composition:
+        description: 'Composition name to render'
+        required: true
+        default: 'BridgeShort'
+      scale:
+        description: 'Render scale (1.0 = 1080p, 1.3333 = 2K)'
+        required: true
+        default: '1.0'
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - '.github/workflows/render.yml'
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install Node Dependencies
+        run: npm install
+
+      - name: Install Python Dependencies
+        run: pip install numpy scipy edge-tts
+
+      - name: Generate Voiceover & Timings (Edge-TTS)
+        run: python scripts/generate_voice.py
+
+      - name: Synthesize SFX & Mix Audio
+        run: |
+          cd scripts/audio
+          python mix.py
+          cd ../..
+
+      - name: Render Remotion Video (Headless WebGL)
+        run: |
+          mkdir -p out
+          npx remotion render src/index.ts ${{ github.event.inputs.composition || 'BridgeShort' }} out/raw_video.mp4 --codec h264 --scale ${{ github.event.inputs.scale || '1.0' }}
+
+      - name: Mux Video and Audio
+        run: |
+          if [ -f "scripts/audio/mix.wav" ]; then
+            ffmpeg -y -i out/raw_video.mp4 -i scripts/audio/mix.wav -c:v copy -c:a aac -b:a 192k -map 0:v:0 -map 1:a:0 -shortest out/final_video.mp4
+          elif [ -f "voice/voice.wav" ]; then
+            ffmpeg -y -i out/raw_video.mp4 -i voice/voice.wav -c:v copy -c:a aac -b:a 192k -map 0:v:0 -map 1:a:0 -shortest out/final_video.mp4
+          else
+            cp out/raw_video.mp4 out/final_video.mp4
+          fi
+
+      - name: Upload Final Animated Short (MP4)
+        uses: actions/upload-artifact@v4
+        with:
+          name: animated-short-1080p
+          path: out/final_video.mp4
+          retention-days: 14

@@ -1,0 +1,11 @@
+node_modules/
+out/
+.remotion/
+_cache/
+*.pyc
+__pycache__/
+voice/*.mp3
+voice/*.wav
+voice/*.vtt
+scripts/audio/_cache/
+scripts/audio/*.wav

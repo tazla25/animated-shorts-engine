@@ -1,0 +1,27 @@
+{
+  "name": "animated-shorts-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "2D characters in a 3D cartoon world vertical animated shorts engine",
+  "scripts": {
+    "build": "remotion bundle src/index.ts",
+    "render": "remotion render src/index.ts BridgeShort out/video.mp4 --codec h264 --scale 1.0",
+    "render:2k": "remotion render src/index.ts BridgeShort out/video.mp4 --codec h264 --scale 1.3333"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^8.16.8",
+    "@react-three/postprocessing": "^2.16.2",
+    "@remotion/cli": "4.0.218",
+    "@remotion/three": "4.0.218",
+    "postprocessing": "^2.16.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.218",
+    "three": "^0.165.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/three": "^0.165.0",
+    "typescript": "^5.4.5"
+  }
+}
