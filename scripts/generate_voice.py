@@ -28,20 +28,26 @@ async def generate(text: str, voice: str = "en-US-ChristopherNeural", out_dir: s
     import edge_tts
     os.makedirs(out_dir, exist_ok=True)
     mp3_path = os.path.join(out_dir, "voice.mp3")
-    vtt_path = os.path.join(out_dir, "voice.vtt")
     wav_path = os.path.join(out_dir, "voice.wav")
     words_path = os.path.join(out_dir, "words.json")
 
     print(f"[*] Synthesizing speech with voice: {voice}...")
     communicate = edge_tts.Communicate(text, voice, rate="+2%", pitch="-1Hz")
-    sub_maker = edge_tts.SubMaker()
 
+    words = []
     with open(mp3_path, "wb") as f:
         async for chunk in communicate.stream():
             if chunk["type"] == "audio":
                 f.write(chunk["data"])
             elif chunk["type"] == "WordBoundary":
-                sub_maker.create_sub((chunk["offset"], chunk["duration"]), chunk["text"])
+                # Offset & duration are in 100-nanosecond ticks
+                start_sec = chunk["offset"] / 10_000_000.0
+                dur_sec = chunk["duration"] / 10_000_000.0
+                words.append({
+                    "w": chunk["text"].strip(),
+                    "s": round(start_sec, 3),
+                    "e": round(start_sec + dur_sec, 3)
+                })
 
     print(f"[*] Converting {mp3_path} to 48kHz WAV: {wav_path}...")
     subprocess.run([
@@ -50,22 +56,10 @@ async def generate(text: str, voice: str = "en-US-ChristopherNeural", out_dir: s
         wav_path
     ], check=True)
 
-    # Export word timings
-    words = []
-    # If submaker has subs
-    for sub in sub_maker.subs:
-        start_sec = sub.start.total_seconds()
-        end_sec = sub.end.total_seconds()
-        words.append({
-            "w": sub.text.strip(),
-            "s": round(start_sec, 3),
-            "e": round(end_sec, 3)
-        })
-
     with open(words_path, "w", encoding="utf-8") as f:
         json.dump(words, f, indent=2)
 
-    print(f"[+] Voice generation complete: {wav_path} & {words_path}")
+    print(f"[+] Voice generation complete: {wav_path} & {words_path} ({len(words)} words)")
 
 if __name__ == "__main__":
     text = SCRIPT_TEXT

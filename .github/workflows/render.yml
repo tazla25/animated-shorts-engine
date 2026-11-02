@@ -61,7 +61,11 @@ jobs:
       - name: Render Remotion Video (Headless WebGL)
         run: |
           mkdir -p out
-          npx remotion render src/index.ts ${{ github.event.inputs.composition || 'BridgeShort' }} out/raw_video.mp4 --codec h264 --scale ${{ github.event.inputs.scale || '1.0' }}
+          COMP="${{ github.event.inputs.composition }}"
+          if [ -z "$COMP" ]; then COMP="BridgeShort"; fi
+          SCALE="${{ github.event.inputs.scale }}"
+          if [ -z "$SCALE" ]; then SCALE="1.0"; fi
+          npx remotion render src/index.ts "$COMP" out/raw_video.mp4 --codec h264 --scale "$SCALE"
 
       - name: Mux Video and Audio
         run: |
