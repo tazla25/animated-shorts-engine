@@ -367,7 +367,7 @@ export class InkPass extends Pass {
     renderer.autoClear = autoClear;
   }
 
-  override dispose() {
+  dispose() {
     this.rt.depthTexture?.dispose();
     this.rt.dispose(); this.maskRT.dispose(); this.tmpRT.dispose();
     this.normalMat.dispose(); this.maskMat.dispose(); this.compMat.dispose(); this.copyMat.dispose();
