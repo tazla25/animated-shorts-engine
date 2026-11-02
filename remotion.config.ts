@@ -5,4 +5,3 @@ Config.setOverwriteOutput(true);
 Config.setConcurrency(2);
 Config.setDelayRenderTimeoutInMilliseconds(120000);
 Config.setChromiumOpenGlRenderer("angle-egl");
-Config.setChromeMode("chrome-for-testing");

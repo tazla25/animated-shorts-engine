@@ -44,9 +44,9 @@ run("python scripts/generate_voice.py", cwd=work_dir)
 run("python mix.py", cwd=os.path.join(work_dir, "scripts", "audio"))
 
 # 7. Check GPU in Remotion & Render
-run("npx remotion gpu --gl=angle-egl", cwd=work_dir)
+run("npx remotion gpu --gl=angle-egl || true", cwd=work_dir)
 run("mkdir -p out", cwd=work_dir)
-run("npx remotion render src/index.ts BridgeShort out/raw_video.mp4 --codec h264 --scale 1.0 --gl=angle-egl --chrome-mode=chrome-for-testing", cwd=work_dir)
+run("npx remotion render src/index.ts BridgeShort out/raw_video.mp4 --codec h264 --scale 1.0 --gl=angle-egl", cwd=work_dir)
 
 # 8. Mux Video and Audio to /kaggle/working/
 output_mp4 = "/kaggle/working/final_video.mp4"
