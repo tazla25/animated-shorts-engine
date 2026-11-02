@@ -65,7 +65,7 @@ jobs:
           if [ -z "$COMP" ]; then COMP="BridgeShort"; fi
           SCALE="${{ github.event.inputs.scale }}"
           if [ -z "$SCALE" ]; then SCALE="1.0"; fi
-          npx remotion render src/index.ts "$COMP" out/raw_video.mp4 --codec h264 --scale "$SCALE"
+          npx remotion render src/index.ts "$COMP" out/raw_video.mp4 --codec h264 --scale "$SCALE" --gl=swiftshader
 
       - name: Mux Video and Audio
         run: |

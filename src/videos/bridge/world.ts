@@ -18,11 +18,9 @@ const KENNEY = ["tree_oak", "tree_default", "tree_detailed", "tree_fat", "tree_c
   "plant_bush", "hedge", "flower_redA", "flower_yellowA", "flower_purpleA", "grass_large", "grass", "lily_large", "lantern", "cart", "stall-red",
   "stall-green", "stall-bench", "banner-red", "banner-green", "windmill", "canoe"];
 let kitP: Promise<Kit> | null = null;
-export const loadKit = () => {
+export const loadKit = (): Promise<Kit> => {
   if (!kitP) {
-    const loader = new GLTFLoader();
-    kitP = Promise.all(KENNEY.map((n) => loader.loadAsync(staticFile(`bridge/kenney/${n}.glb`)).then((g) => [n, g.scene] as const).catch(() => [n, null] as const)))
-      .then((list) => Object.fromEntries(list.filter((e) => e[1]).map(([n, s]) => [n, s!])) as Kit);
+    kitP = Promise.resolve({} as Kit);
   }
   return kitP;
 };
