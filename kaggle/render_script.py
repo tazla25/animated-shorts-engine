@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+import os
+import sys
+import subprocess
+import time
+
+def run(cmd, cwd=None):
+    print(f"\n==========================================")
+    print(f"[*] Running: {cmd}")
+    print(f"==========================================")
+    t0 = time.time()
+    res = subprocess.run(cmd, shell=True, cwd=cwd)
+    dt = time.time() - t0
+    if res.returncode != 0:
+        print(f"[!] Error: Command exited with code {res.returncode} after {dt:.1f}s")
+        sys.exit(res.returncode)
+    print(f"[+] Finished in {dt:.1f}s")
+
+print("\n🚀 Starting Animated Shorts GPU Rendering on Kaggle...")
+
+# 1. Verify GPU
+run("nvidia-smi")
+
+# 2. Install Node.js 22 and FFmpeg
+run("curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && apt-get install -y nodejs ffmpeg")
+run("node -v && npm -v && ffmpeg -version | head -n 1")
+
+# 3. Clone Repository
+work_dir = "/kaggle/working/animated-shorts-engine"
+if os.path.exists(work_dir):
+    run("git pull", cwd=work_dir)
+else:
+    run(f"git clone https://github.com/tazla25/animated-shorts-engine.git {work_dir}")
+
+# 4. Install Node Dependencies & Python Dependencies
+run("npm install --legacy-peer-deps", cwd=work_dir)
+run("pip install edge-tts numpy scipy", cwd=work_dir)
+
+# 5. Generate Voiceover & Timings
+run("python scripts/generate_voice.py", cwd=work_dir)
+
+# 6. Synthesize SFX & March Audio Mix
+run("python mix.py", cwd=os.path.join(work_dir, "scripts", "audio"))
+
+# 7. Render Remotion Video with GPU acceleration
+# On Nvidia Linux, egl or angle enables hardware WebGL acceleration
+run("mkdir -p out", cwd=work_dir)
+run("npx remotion render src/index.ts BridgeShort out/raw_video.mp4 --codec h264 --scale 1.0 --gl=egl", cwd=work_dir)
+
+# 8. Mux Video and Audio
+output_mp4 = "/kaggle/working/final_video.mp4"
+mix_wav = os.path.join(work_dir, "scripts", "audio", "mix.wav")
+raw_mp4 = os.path.join(work_dir, "out", "raw_video.mp4")
+
+if os.path.exists(mix_wav) and os.path.exists(raw_mp4):
+    run(f"ffmpeg -y -i {raw_mp4} -i {mix_wav} -c:v copy -c:a aac -b:a 192k -map 0:v:0 -map 1:a:0 -shortest {output_mp4}")
+elif os.path.exists(raw_mp4):
+    run(f"cp {raw_mp4} {output_mp4}")
+
+if os.path.exists(output_mp4):
+    size_mb = os.path.getsize(output_mp4) / (1024 * 1024)
+    print(f"\n🎉 [SUCCESS] Rendered Final Video: {output_mp4} ({size_mb:.2f} MB)")
+else:
+    print("\n[!] Output video not found!")
