@@ -13,7 +13,7 @@
     "@react-three/postprocessing": "^2.16.2",
     "@remotion/cli": "4.0.218",
     "@remotion/three": "4.0.218",
-    "postprocessing": "^2.16.5",
+    "postprocessing": "^6.36.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "remotion": "4.0.218",
