@@ -1,0 +1,61 @@
+{
+  "title": "What If You Could Pause Time for 10 Seconds?",
+  "voice": "en-US-ChristopherNeural",
+  "shots": [
+    {
+      "id": 1,
+      "tag": "city_chaos",
+      "text": "Imagine walking down a chaotic city street on a cold rainy morning. Cars honking, sirens blaring, and people bumping past you."
+    },
+    {
+      "id": 2,
+      "tag": "watch_click",
+      "text": "Suddenly, you discover a golden pocket watch. You pull it out, and press the crown. Click."
+    },
+    {
+      "id": 3,
+      "tag": "freeze_god",
+      "text": "Instantly, reality freezes. A cup of coffee hangs suspended like amber glass. A speeding car halts an inch from a pedestrian. You feel like an invincible god."
+    },
+    {
+      "id": 4,
+      "tag": "sudden_blackout",
+      "text": "You take a step forward to enjoy the frozen world. But the instant you move, your vision is plunged into pitch-black darkness."
+    },
+    {
+      "id": 5,
+      "tag": "photon_prison",
+      "text": "Why? Because light photons travel at three hundred thousand kilometers per second. But with time stopped, light cannot move. Photons are frozen in space. You are completely and hopelessly blind."
+    },
+    {
+      "id": 6,
+      "tag": "concrete_air",
+      "text": "Panicked, you try to scream for help. But sound waves cannot propagate. Even worse, quadrillions of air molecules are locked in place, turning the air around your body into solid, impenetrable concrete."
+    },
+    {
+      "id": 7,
+      "tag": "absolute_zero",
+      "text": "And then, thermodynamics kicks in. Heat is simply the vibration of atoms. With zero molecular motion, the temperature around you plummets to minus two hundred and seventy-three degrees Celsius: absolute zero."
+    },
+    {
+      "id": 8,
+      "tag": "orbital_mach88",
+      "text": "Frost flash-freezes your skin. But the deadliest trap is celestial physics. The Earth orbits the Sun at thirty kilometers per second. The moment time freezes, inertia catapults your body forward at Mach eighty-eight!"
+    },
+    {
+      "id": 9,
+      "tag": "tenth_second_countdown",
+      "text": "You are on the verge of total cellular annihilation, when finally, the watch clicks to the tenth second. The snapback."
+    },
+    {
+      "id": 10,
+      "tag": "snapback_explosion",
+      "text": "Supersonic air collapses inward with an explosive shockwave! Millions of frozen photons slam into your retinas in a blinding burst of white light!"
+    },
+    {
+      "id": 11,
+      "tag": "aftermath_verdict",
+      "text": "You collapse onto your knees on the pavement, gasping for warm, moving air. You look at that watch in your trembling hand, and realize: time is what keeps the universe alive. Would you ever press it again?"
+    }
+  ]
+}

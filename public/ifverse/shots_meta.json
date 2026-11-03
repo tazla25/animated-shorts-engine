@@ -1,0 +1,293 @@
+{
+  "title": "What If You Could Pause Time for 10 Seconds?",
+  "total_duration": 129.69600000000003,
+  "total_frames": 3892,
+  "shots": [
+    {
+      "id": 1,
+      "tag": "city_chaos",
+      "text": "Imagine walking down a chaotic city street on a cold rainy morning. Cars honking, sirens blaring, and people bumping past you.",
+      "duration": 9.096,
+      "frames": 273,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/shot_1_city_chaos.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/words_1_city_chaos.json",
+      "words_data": [
+        {
+          "text": "Imagine walking down a chaotic city street on a cold rainy morning.",
+          "start": 0.1,
+          "end": 4.633
+        },
+        {
+          "text": "Cars honking, sirens blaring, and people bumping past you.",
+          "start": 4.583,
+          "end": 9.044
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "tag": "watch_click",
+      "text": "Suddenly, you discover a golden pocket watch. You pull it out, and press the crown. Click.",
+      "duration": 8.04,
+      "frames": 241,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/shot_2_watch_click.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/words_2_watch_click.json",
+      "words_data": [
+        {
+          "text": "Suddenly, you discover a golden pocket watch.",
+          "start": 0.1,
+          "end": 3.788
+        },
+        {
+          "text": "You pull it out, and press the crown.",
+          "start": 3.738,
+          "end": 6.654
+        },
+        {
+          "text": "Click.",
+          "start": 6.654,
+          "end": 7.99
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "tag": "freeze_god",
+      "text": "Instantly, reality freezes. A cup of coffee hangs suspended like amber glass. A speeding car halts an inch from a pedestrian. You feel like an invincible god.",
+      "duration": 12.72,
+      "frames": 382,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/shot_3_freeze_god.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/words_3_freeze_god.json",
+      "words_data": [
+        {
+          "text": "Instantly, reality freezes.",
+          "start": 0.1,
+          "end": 3.052
+        },
+        {
+          "text": "A cup of coffee hangs suspended like amber glass.",
+          "start": 3.002,
+          "end": 6.654
+        },
+        {
+          "text": "A speeding car halts an inch from a pedestrian.",
+          "start": 6.654,
+          "end": 10.025
+        },
+        {
+          "text": "You feel like an invincible god.",
+          "start": 10.025,
+          "end": 12.672
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "tag": "sudden_blackout",
+      "text": "You take a step forward to enjoy the frozen world. But the instant you move, your vision is plunged into pitch-black darkness.",
+      "duration": 8.52,
+      "frames": 256,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/shot_4_sudden_blackout.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/words_4_sudden_blackout.json",
+      "words_data": [
+        {
+          "text": "You take a step forward to enjoy the frozen world.",
+          "start": 0.1,
+          "end": 3.665
+        },
+        {
+          "text": "But the instant you move, your vision is plunged into pitch-black darkness.",
+          "start": 3.615,
+          "end": 8.456
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "tag": "photon_prison",
+      "text": "Why? Because light photons travel at three hundred thousand kilometers per second. But with time stopped, light cannot move. Photons are frozen in space. You are completely and hopelessly blind.",
+      "duration": 15.576,
+      "frames": 467,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/shot_5_photon_prison.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/words_5_photon_prison.json",
+      "words_data": [
+        {
+          "text": "Why?",
+          "start": 0.1,
+          "end": 1.41
+        },
+        {
+          "text": "Because light photons travel at three hundred thousand kilometers per second.",
+          "start": 1.36,
+          "end": 6.25
+        },
+        {
+          "text": "But with time stopped, light cannot move.",
+          "start": 6.25,
+          "end": 9.547
+        },
+        {
+          "text": "Photons are frozen in space.",
+          "start": 9.547,
+          "end": 12.353
+        },
+        {
+          "text": "You are completely and hopelessly blind.",
+          "start": 12.353,
+          "end": 15.515
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "tag": "concrete_air",
+      "text": "Panicked, you try to scream for help. But sound waves cannot propagate. Even worse, quadrillions of air molecules are locked in place, turning the air around your body into solid, impenetrable concrete.",
+      "duration": 14.304,
+      "frames": 429,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/shot_6_concrete_air.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/words_6_concrete_air.json",
+      "words_data": [
+        {
+          "text": "Panicked, you try to scream for help.",
+          "start": 0.1,
+          "end": 3.028
+        },
+        {
+          "text": "But sound waves cannot propagate.",
+          "start": 2.978,
+          "end": 5.944
+        },
+        {
+          "text": "Even worse, quadrillions of air molecules are locked in place, turning the air around your body into solid, impenetrable concrete.",
+          "start": 5.944,
+          "end": 14.252
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "tag": "absolute_zero",
+      "text": "And then, thermodynamics kicks in. Heat is simply the vibration of atoms. With zero molecular motion, the temperature around you plummets to minus two hundred and seventy-three degrees Celsius: absolute zero.",
+      "duration": 14.424,
+      "frames": 433,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/shot_7_absolute_zero.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/words_7_absolute_zero.json",
+      "words_data": [
+        {
+          "text": "And then, thermodynamics kicks in.",
+          "start": 0.1,
+          "end": 3.273
+        },
+        {
+          "text": "Heat is simply the vibration of atoms.",
+          "start": 3.223,
+          "end": 6.262
+        },
+        {
+          "text": "With zero molecular motion, the temperature around you plummets to minus two hundred and seventy-three degrees Celsius: absolute zero.",
+          "start": 6.262,
+          "end": 14.363
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "tag": "orbital_mach88",
+      "text": "Frost flash-freezes your skin. But the deadliest trap is celestial physics. The Earth orbits the Sun at thirty kilometers per second. The moment time freezes, inertia catapults your body forward at Mach eighty-eight!",
+      "duration": 15.264,
+      "frames": 458,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/shot_8_orbital_mach88.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/words_8_orbital_mach88.json",
+      "words_data": [
+        {
+          "text": "Frost flash-freezes your skin.",
+          "start": 0.1,
+          "end": 2.734
+        },
+        {
+          "text": "But the deadliest trap is celestial physics.",
+          "start": 2.684,
+          "end": 5.98
+        },
+        {
+          "text": "The Earth orbits the Sun at thirty kilometers per second.",
+          "start": 5.98,
+          "end": 9.89
+        },
+        {
+          "text": "The moment time freezes, inertia catapults your body forward at Mach eighty-eight!",
+          "start": 9.89,
+          "end": 15.221
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "tag": "tenth_second_countdown",
+      "text": "You are on the verge of total cellular annihilation, when finally, the watch clicks to the tenth second. The snapback.",
+      "duration": 8.4,
+      "frames": 252,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/shot_9_tenth_second_countdown.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/words_9_tenth_second_countdown.json",
+      "words_data": [
+        {
+          "text": "You are on the verge of total cellular annihilation, when finally, the watch clicks to the tenth second.",
+          "start": 0.1,
+          "end": 6.582
+        },
+        {
+          "text": "The snapback.",
+          "start": 6.532,
+          "end": 8.346
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "tag": "snapback_explosion",
+      "text": "Supersonic air collapses inward with an explosive shockwave! Millions of frozen photons slam into your retinas in a blinding burst of white light!",
+      "duration": 9.864,
+      "frames": 296,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/shot_10_snapback_explosion.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/words_10_snapback_explosion.json",
+      "words_data": [
+        {
+          "text": "Supersonic air collapses inward with an explosive shockwave!",
+          "start": 0.1,
+          "end": 4.523
+        },
+        {
+          "text": "Millions of frozen photons slam into your retinas in a blinding burst of white light!",
+          "start": 4.473,
+          "end": 9.816
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "tag": "aftermath_verdict",
+      "text": "You collapse onto your knees on the pavement, gasping for warm, moving air. You look at that watch in your trembling hand, and realize: time is what keeps the universe alive. Would you ever press it again?",
+      "duration": 13.488,
+      "frames": 405,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/shot_11_aftermath_verdict.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/ifverse/audio/words_11_aftermath_verdict.json",
+      "words_data": [
+        {
+          "text": "You collapse onto your knees on the pavement, gasping for warm, moving air.",
+          "start": 0.1,
+          "end": 5.148
+        },
+        {
+          "text": "You look at that watch in your trembling hand, and realize: time is what keeps the universe alive.",
+          "start": 5.098,
+          "end": 11.287
+        },
+        {
+          "text": "Would you ever press it again?",
+          "start": 11.287,
+          "end": 13.444
+        }
+      ]
+    }
+  ]
+}

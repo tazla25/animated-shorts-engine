@@ -4,10 +4,22 @@ import { BridgeShort, BRIDGE_FRAMES } from "./videos/bridge/Bridge";
 import { MasterVideo } from "./videos/horizontal/MasterVideo";
 import { ChapterView } from "./videos/horizontal/ChapterView";
 import { CHAPTERS, TOTAL_FRAMES } from "./videos/horizontal/data";
+import { IfverseVideo } from "./videos/ifverse/IfverseVideo";
+import { TOTAL_FRAMES as IFVERSE_FRAMES } from "./videos/ifverse/data";
 
 export const Root: React.FC = () => {
   return (
     <>
+      {/* Ifverse-Style Animated Sci-Fi Story: "What If You Could Pause Time for 10 Seconds?" */}
+      <Composition
+        id="Ifverse-PauseTime"
+        component={IfverseVideo}
+        durationInFrames={IFVERSE_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
       {/* 16:9 Longform Master Video (8-10+ mins, 1920x1080) */}
       <Composition
         id="WhatIfPauseTime-Master"

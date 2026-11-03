@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Kaggle GPU Automated Render Pipeline for 16:9 Longform Animated Video
-Render target: "What If You Could Pause Time for 10 Seconds?" (~11 mins, 1920x1080)
+Kaggle GPU Automated Render Pipeline for Ifverse-Style Animated Sci-Fi Video
+Target: "What If You Could Pause Time for 10 Seconds?" (16:9 Full HD 1920x1080 @ 30fps)
+Composition: Ifverse-PauseTime (~130s, 3892 frames)
 """
 import os
 import sys
 import subprocess
 import time
-import json
 
 def run(cmd, cwd=None, ignore_error=False):
     print(f"\n==========================================")
@@ -22,7 +22,7 @@ def run(cmd, cwd=None, ignore_error=False):
     print(f"[+] Finished in {dt:.1f}s")
     return res.returncode
 
-print("\n🚀 Starting Animated Longform GPU Rendering on Kaggle (Nvidia Tesla T4)...")
+print("\n🚀 Starting Ifverse 2D Animated Video GPU Rendering on Kaggle (Nvidia Tesla T4)...")
 
 # 1. Inspect GPU
 run("nvidia-smi")
@@ -40,76 +40,41 @@ else:
 
 # 4. Install Dependencies
 run("npm install --legacy-peer-deps", cwd=work_dir)
-run("pip install edge-tts numpy scipy", cwd=work_dir)
 
-# 5. Synthesize Audio & Ensure Assets
-run("python scripts/longform/generate_audio.py", cwd=work_dir)
-
-# 6. Ensure Chrome for Testing with GPU Acceleration
+# 5. Ensure Chrome for Testing with GPU Acceleration
 run("npx remotion browser ensure --chrome-mode=chrome-for-testing", cwd=work_dir)
 
-# 7. Verify Compositions
+# 6. Verify Compositions
 run("npx remotion compositions src/index.ts", cwd=work_dir)
 
-# 8. Render Strategy
-output_master = "/kaggle/working/What_If_Pause_Time_8Min.mp4"
+# 7. Render Ifverse-PauseTime
+output_video = "/kaggle/working/What_If_Pause_Time_Ifverse.mp4"
 os.makedirs("/kaggle/working", exist_ok=True)
 
-meta_path = os.path.join(work_dir, "public", "pause_time", "chapters_meta.json")
-if not os.path.exists(meta_path):
-    print("[!] Metadata missing in public/pause_time!")
-    sys.exit(1)
+print(f"\n🎬 Rendering Ifverse-PauseTime to {output_video}...")
+render_cmd = (
+    f"npx remotion render src/index.ts Ifverse-PauseTime {output_video} "
+    f"--codec h264 --gl=angle-egl --chrome-mode=chrome-for-testing --concurrency 4"
+)
+run(render_cmd, cwd=work_dir)
 
-with open(meta_path, "r", encoding="utf-8") as f:
-    meta = json.load(f)
-
-print(f"\n🎬 Rendering {len(meta['chapters'])} Chapters (Total Frames: {meta['total_frames']} @ 30fps)...")
-
-# Render Chapter by Chapter into /tmp/chapters/ for maximum resilience
-chapters_dir = "/tmp/chapters"
-os.makedirs(chapters_dir, exist_ok=True)
-
-rendered_chapters = []
-for ch in meta["chapters"]:
-    ch_id = ch["id"]
-    comp_id = f"Chapter-{ch_id}-{ch['slug']}"
-    ch_out = os.path.join(chapters_dir, f"chapter_{ch_id}.mp4")
+# 8. Verification & Preview Still Generation
+if os.path.exists(output_video):
+    size_mb = os.path.getsize(output_video) / (1024 * 1024)
+    run(f"ffprobe -v error -show_entries format=duration,size:stream=width,height,nb_frames {output_video}")
     
-    print(f"\n-------------------------------------------------------------")
-    print(f"[*] Rendering Chapter {ch_id}/{len(meta['chapters'])}: {ch['title']} ({ch['frames']} frames)...")
-    print(f"-------------------------------------------------------------")
+    # Generate Preview Still Shots across the timeline
+    run(f"ffmpeg -y -ss 00:00:05 -i {output_video} -vframes 1 -q:v 2 /kaggle/working/preview_shot1_city.jpg")
+    run(f"ffmpeg -y -ss 00:00:20 -i {output_video} -vframes 1 -q:v 2 /kaggle/working/preview_shot3_freeze.jpg")
+    run(f"ffmpeg -y -ss 00:00:50 -i {output_video} -vframes 1 -q:v 2 /kaggle/working/preview_shot5_photons.jpg")
+    run(f"ffmpeg -y -ss 00:01:25 -i {output_video} -vframes 1 -q:v 2 /kaggle/working/preview_shot8_orbital.jpg")
+    run(f"ffmpeg -y -ss 00:01:50 -i {output_video} -vframes 1 -q:v 2 /kaggle/working/preview_shot10_explosion.jpg")
     
-    cmd = (
-        f"npx remotion render src/index.ts {comp_id} {ch_out} "
-        f"--codec h264 --gl=angle-egl --chrome-mode=chrome-for-testing --concurrency 4"
-    )
-    rc = run(cmd, cwd=work_dir, ignore_error=False)
-    if os.path.exists(ch_out):
-        ch_size = os.path.getsize(ch_out) / (1024 * 1024)
-        print(f"[+] Chapter {ch_id} Rendered: {ch_out} ({ch_size:.2f} MB)")
-        rendered_chapters.append(ch_out)
-    else:
-        print(f"[!] Error: Chapter {ch_id} failed to render.")
-        sys.exit(1)
-
-# 8. Concatenate with Lossless FFmpeg stream copy
-print("\n🔗 Merging all 8 Chapters with FFmpeg Lossless Stream Copy...")
-list_file = os.path.join(chapters_dir, "list.txt")
-with open(list_file, "w") as f:
-    for ch_path in rendered_chapters:
-        f.write(f"file '{ch_path}'\n")
-
-run(f"ffmpeg -y -f concat -safe 0 -i {list_file} -c copy {output_master}")
-
-# 9. Verify Final Master Video
-if os.path.exists(output_master):
-    size_mb = os.path.getsize(output_master) / (1024 * 1024)
-    run(f"ffprobe -v error -show_entries format=duration,size:stream=width,height {output_master}")
     print(f"\n=======================================================")
-    print(f"🎉 [MASTER SUCCESS] Final 16:9 Longform Video Ready!")
-    print(f"📍 Location: {output_master}")
+    print(f"🎉 [IFVERSE MASTER SUCCESS] Final 16:9 Video Ready!")
+    print(f"📍 Location: {output_video}")
     print(f"📦 Size: {size_mb:.2f} MB")
     print(f"=======================================================\n")
 else:
-    print("\n[!] Concat failed: Master video not found!")
+    print("\n[!] Render failed: Master video not found!")
     sys.exit(1)
