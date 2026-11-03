@@ -72,8 +72,7 @@ os.makedirs(chapters_dir, exist_ok=True)
 rendered_chapters = []
 for ch in meta["chapters"]:
     ch_id = ch["id"]
-    slug = ch["slug"].replace("-", "_")
-    comp_id = f"Chapter_{ch_id}_{slug}"
+    comp_id = f"Chapter-{ch_id}-{ch['slug']}"
     ch_out = os.path.join(chapters_dir, f"chapter_{ch_id}.mp4")
     
     print(f"\n-------------------------------------------------------------")

@@ -10,7 +10,7 @@ export const Root: React.FC = () => {
     <>
       {/* 16:9 Longform Master Video (8-10+ mins, 1920x1080) */}
       <Composition
-        id="WhatIfPauseTime_Master"
+        id="WhatIfPauseTime-Master"
         component={MasterVideo}
         durationInFrames={TOTAL_FRAMES}
         fps={30}
@@ -22,7 +22,7 @@ export const Root: React.FC = () => {
       {CHAPTERS.map((ch) => (
         <Composition
           key={ch.id}
-          id={`Chapter_${ch.id}_${ch.slug.replace(/-/g, "_")}`}
+          id={`Chapter-${ch.id}-${ch.slug}`}
           component={ChapterView}
           durationInFrames={ch.frames}
           fps={30}
