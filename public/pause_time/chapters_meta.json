@@ -1,0 +1,79 @@
+{
+  "title": "What If You Could Pause Time for 10 Seconds?",
+  "total_duration": 673.3439999999999,
+  "total_frames": 20200,
+  "chapters": [
+    {
+      "id": 1,
+      "slug": "the-fantasy",
+      "title": "Chapter 1: The Ultimate Fantasy",
+      "duration": 92.256,
+      "frames": 2767,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/chapter_1_the-fantasy.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/words_1_the-fantasy.json"
+    },
+    {
+      "id": 2,
+      "slug": "the-photon-prison",
+      "title": "Chapter 2: The Photon Prison",
+      "duration": 83.952,
+      "frames": 2518,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/chapter_2_the-photon-prison.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/words_2_the-photon-prison.json"
+    },
+    {
+      "id": 3,
+      "slug": "the-concrete-air",
+      "title": "Chapter 3: The Concrete Air and Acoustic Void",
+      "duration": 86.784,
+      "frames": 2603,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/chapter_3_the-concrete-air.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/words_3_the-concrete-air.json"
+    },
+    {
+      "id": 4,
+      "slug": "absolute-zero",
+      "title": "Chapter 4: The Absolute Zero Trap",
+      "duration": 86.928,
+      "frames": 2607,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/chapter_4_absolute-zero.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/words_4_absolute-zero.json"
+    },
+    {
+      "id": 5,
+      "slug": "orbital-catastrophe",
+      "title": "Chapter 5: The Orbital Nightmare at Mach 88",
+      "duration": 81.768,
+      "frames": 2453,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/chapter_5_orbital-catastrophe.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/words_5_orbital-catastrophe.json"
+    },
+    {
+      "id": 6,
+      "slug": "gravitational-paradox",
+      "title": "Chapter 6: The Gravitational Grid Paradox",
+      "duration": 74.232,
+      "frames": 2226,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/chapter_6_gravitational-paradox.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/words_6_gravitational-paradox.json"
+    },
+    {
+      "id": 7,
+      "slug": "quantum-entropy",
+      "title": "Chapter 7: The Quantum Observer and Entropy Arrow",
+      "duration": 72.6,
+      "frames": 2178,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/chapter_7_quantum-entropy.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/words_7_quantum-entropy.json"
+    },
+    {
+      "id": 8,
+      "slug": "the-snapback",
+      "title": "Chapter 8: The 10th Second Snapback and Cosmic Verdict",
+      "duration": 94.824,
+      "frames": 2844,
+      "wav": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/chapter_8_the-snapback.wav",
+      "words": "/data/data/com.termux/files/home/animated-shorts-engine/scripts/longform/voice/words_8_the-snapback.json"
+    }
+  ]
+}
